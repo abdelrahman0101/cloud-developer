@@ -32,7 +32,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     
     if (!req.query.image_url)
     {
-      return res.status(400).send({message: "Missing the required parameter: image_url!"})
+      return res.status(422).send({message: "Missing the required parameter: image_url!"})
     }
 
     let path : string = await filterImageFromURL(req.query.image_url);
