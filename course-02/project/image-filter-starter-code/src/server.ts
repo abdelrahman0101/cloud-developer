@@ -36,6 +36,8 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     }
 
     let path : string = await filterImageFromURL(req.query.image_url);
+    
+    //delete local files after response is sent
     res.on("finish", () => {
       deleteLocalFiles([path]);
     });
